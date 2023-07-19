@@ -1,0 +1,40 @@
+﻿@using Homework_03_13.Models
+@model List<ToDoItem>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <a href="/home/newitem" class="btn btn-success">New Item</a>
+        <br />
+        <table class="table table-hover table-striped table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Category Name</th>
+                    <th>Due Date</th>
+                    <th>Mark as Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ToDoItem item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.CategoryName</td>
+                        <td>@item.DueDate.ToShortDateString()</td>
+                        <td>
+                            <form method="post" action="/home/markcompleted">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button class="btn-primary btn">Mark As Complete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

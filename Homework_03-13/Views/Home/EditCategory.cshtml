@@ -1,0 +1,18 @@
+﻿@using Homework_03_13.Models
+@model Category
+
+<div b-gla70z2p0w class="container">
+    <div style="height: 70vh;" class="row justify-content-center align-items-center">
+        <div class="col-md-8">
+            <form method="post" action="/home/updatecategory">
+                <input type="text" class="form-control-lg form-control" value="@Model.Name" name="name" />
+                <input type="hidden" value="@Model.Id" name="id" />
+                <br />
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary">Update</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

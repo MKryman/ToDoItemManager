@@ -1,0 +1,40 @@
+﻿@using Homework_03_13.Models
+@model List<ToDoItem>
+
+<div b-gla70z2p0w class="container">
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table table-hover table-striped table-bordered">
+                <tr>
+                    <th>Title</th>
+                    <th>Category Name</th>
+                    <th>Due Date</th>
+                    <th>Completed Date</th>
+                </tr>
+                @foreach (ToDoItem item in Model)
+                {
+                    if (item.CompletedDate != null)
+                    {
+                        <tr class="">
+                            <td>@item.Title</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.DueDate</td>
+                            <td>@item.CompletedDate.Value.ToShortDateString()</td>
+                        </tr>
+                    }
+
+                    else
+                    {
+                        <tr class="table-danger">
+                            <td>@item.Title</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.DueDate</td>
+                            <td>N/A</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Homework_03_13.Models
+@model List<Category>
+
+<div b-gla70z2p0w class="container">
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <a href="/home/newcategory" class="btn btn-success">New Category</a>
+            <br />
+            <table class="table table-hover table-striped table-bordered mt-4">
+                <tr>
+                    <th>Category Name</th>
+                    <th>Edit</th>
+                </tr>
+                @foreach(Category c in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/home/bycategory?id=@c.Id">@c.Name</a>
+                        </td>
+                        <td>
+                            <a href="/home/editcategory?id=@c.Id" class="btn btn-light btn-outline-dark">EDIT</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
